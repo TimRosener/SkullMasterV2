@@ -1,6 +1,13 @@
-/****************************************************************************************************************
-  ServoDriver.h
-***************************************************************************************************************/
+// ============================================================================
+// File: ServoDriver.h
+// Project: SkullMasterV2 - DMX512 Animatronic Controller
+// Version: 3.1.0-alpha
+// Date: 2024-12-27
+// Author: Rose&Swan Productions / Tim Rosener
+// Description: Hardware PWM driver for RP2040 using PIO state machines to
+//              generate precise servo control signals
+// License: CC BY-NC 4.0 (Non-Commercial)
+// ============================================================================
 
 #pragma once
 

@@ -1,3 +1,15 @@
+// ============================================================================
+// File: SkullMasterV2.ino
+// Project: SkullMasterV2 - DMX512 Animatronic Controller
+// Version: 3.1.0-alpha
+// Date: 2024-12-27
+// Author: Rose&Swan Productions / Tim Rosener
+// Description: Main Arduino sketch for dual-core RP2040 animatronic control
+//              system with DMX512 interface, 5-axis servo control, and LED
+//              effects for theatrical skull props
+// License: CC BY-NC 4.0 (Non-Commercial)
+// ============================================================================
+
 // ********************************************************************************
 // Define include libraries
 // ********************************************************************************

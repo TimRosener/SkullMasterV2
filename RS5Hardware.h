@@ -1,3 +1,14 @@
+// ============================================================================
+// File: RS5Hardware.h
+// Project: SkullMasterV2 - DMX512 Animatronic Controller
+// Version: 3.1.0-alpha
+// Date: 2024-12-27
+// Author: Rose&Swan Productions / Tim Rosener
+// Description: Hardware pin definitions, servo configurations, and eye effect
+//              profiles for RP2040-based animatronic controller
+// License: CC BY-NC 4.0 (Non-Commercial)
+// ============================================================================
+
 //**********************************************************************************
 // NeoPixel Hardware Definitions
 #define PIN 25            // GPIO PIN for Status Pizel

@@ -1,3 +1,14 @@
+// ============================================================================
+// File: ServoEngine.h
+// Project: SkullMasterV2 - DMX512 Animatronic Controller
+// Version: 3.1.0-alpha
+// Date: 2024-12-27
+// Author: Rose&Swan Productions / Tim Rosener
+// Description: Advanced motion profiling engine with velocity and acceleration
+//              limiting for smooth, lifelike servo movements
+// License: CC BY-NC 4.0 (Non-Commercial)
+// ============================================================================
+
 #ifndef _DERIVS_LIMITER_H_
 #define _DERIVS_LIMITER_H_
 #include <Arduino.h>

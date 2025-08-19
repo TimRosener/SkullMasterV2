@@ -1,3 +1,14 @@
+// ============================================================================
+// File: RS5DMX.h
+// Project: SkullMasterV2 - DMX512 Animatronic Controller
+// Version: 3.1.0-alpha
+// Date: 2024-12-27
+// Author: Rose&Swan Productions / Tim Rosener
+// Description: System state management, DMX configuration, and data structures
+//              for inter-core communication and status tracking
+// License: CC BY-NC 4.0 (Non-Commercial)
+// ============================================================================
+
 #include "DmxInput.h"
 
 
@@ -39,7 +50,7 @@ public:
   System() {
     boot = 0;   // 0 = Core0 Setup, 1 = Core 1 Setup, 2 = Core 0 start, 3 = Core 0 Start, 5 = Run.
     mode = 0;   // 0 = DMX, 1 = Serial, 2 = Program, 3 = XXX, 4 = Demo Mode
-    debug = 2;  // 0 = none, 1 = boot info Only, 2 = DebugLevelDMX 1, 3 = Debug servo 2, 4 = Model 5, 5= voltage and current, 6 Eye Pixel Debug
+    debug = 0;  // 0 = none, 1 = boot info Only, 2 = DebugLevelDMX 1, 3 = Debug servo 2, 4 = Model 5, 5= voltage and current, 6 Eye Pixel Debug
     debugServo = 0;
     servoDebugSampleRate = 200;
     servoDebugLastSample = 0;
@@ -363,7 +374,7 @@ public:
   }
 };
 
-std::array<Hardware, NUM_SERVO_PINS> hardware = { Hardware(SERVO_PIN_1, 1), Hardware(SERVO_PIN_2, 1), Hardware(SERVO_PIN_3, 2), Hardware(SERVO_PIN_4, 2), Hardware(SERVO_PIN_5, 3), Hardware(SERVO_PIN_6, 3), Hardware(SERVO_PIN_7, 4), Hardware(SERVO_PIN_8, 4), Hardware(SERVO_PIN_9, 5), Hardware(SERVO_PIN_10, 5), Hardware(SERVO_PIN_11, 6), Hardware(SERVO_PIN_12, 6) };
+std::array<Hardware, NUM_SERVO_PINS> hardware = { Hardware(SERVO_PIN_1, 1), Hardware(SERVO_PIN_2, 1), Hardware(SERVO_PIN_3, 2), Hardware(SERVO_PIN_4, 2), Hardware(SERVO_PIN_5, 3), Hardware(SERVO_PIN_6, 3) };
 
 //**********************************************************************************
 // Eyes NeoPixel Configuration
@@ -665,7 +676,7 @@ public:
 
 };
 
-std::array<ServoConfig, NUM_SERVO_PINS> C1_config_R = { ServoConfig(0), ServoConfig(1), ServoConfig(2), ServoConfig(3), ServoConfig(4), ServoConfig(5), ServoConfig(6), ServoConfig(7), ServoConfig(8), ServoConfig(9), ServoConfig(10), ServoConfig(11) };
+std::array<ServoConfig, NUM_SERVO_PINS> C1_config_R = { ServoConfig(0), ServoConfig(1), ServoConfig(2), ServoConfig(3), ServoConfig(4), ServoConfig(5) };
 
 
 
@@ -772,7 +783,7 @@ public:
   }
 };
 
-std::array<runData, NUM_SERVO_PINS> C1_run_R = { runData(0), runData(1), runData(2), runData(3), runData(4), runData(5), runData(6), runData(7), runData(8), runData(9), runData(10), runData(11) };
+std::array<runData, NUM_SERVO_PINS> C1_run_R = { runData(0), runData(1), runData(2), runData(3), runData(4), runData(5) };
 
 //**********************************************************************************
 //Function Linking Information

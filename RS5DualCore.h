@@ -1,3 +1,14 @@
+// ============================================================================
+// File: RS5DualCore.h
+// Project: SkullMasterV2 - DMX512 Animatronic Controller
+// Version: 3.1.0-alpha
+// Date: 2024-12-27
+// Author: Rose&Swan Productions / Tim Rosener
+// Description: Inter-core communication and synchronization using FreeRTOS
+//              semaphores for thread-safe data sharing between RP2040 cores
+// License: CC BY-NC 4.0 (Non-Commercial)
+// ============================================================================
+
 #include <FreeRTOS.h>
 #include <semphr.h>
 
