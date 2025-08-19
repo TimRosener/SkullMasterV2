@@ -1,0 +1,74 @@
+name: Arduino CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        board:
+          - fqbn: rp2040:rp2040:rpipico
+            name: "Raspberry Pi Pico"
+          - fqbn: rp2040:rp2040:rpipicow  
+            name: "Raspberry Pi Pico W"
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Arduino CLI
+      uses: arduino/setup-arduino-cli@v1
+      
+    - name: Install RP2040 core
+      run: |
+        arduino-cli config add board_manager.additional_urls https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json
+        arduino-cli core update-index
+        arduino-cli core install rp2040:rp2040
+        
+    - name: Install libraries
+      run: |
+        arduino-cli lib install "Adafruit NeoPixel"
+        arduino-cli lib install "RP2040_PWM" 
+        arduino-cli lib install "Pico-DMX"
+        
+    - name: Compile sketch
+      run: |
+        arduino-cli compile --fqbn ${{ matrix.board.fqbn }} \
+          --warnings all \
+          --export-binaries \
+          SkullMasterV2.ino
+          
+    - name: Check code size
+      run: |
+        echo "=== Memory Usage for ${{ matrix.board.name }} ==="
+        arduino-cli compile --fqbn ${{ matrix.board.fqbn }} \
+          --show-properties | grep -E "upload.maximum_size|upload.maximum_data_size"
+        
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      if: matrix.board.fqbn == 'rp2040:rp2040:rpipico'
+      with:
+        name: firmware-${{ github.sha }}
+        path: |
+          build/rp2040.rp2040.rpipico/*.uf2
+          build/rp2040.rp2040.rpipico/*.elf
+          
+  lint:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Check file formatting
+      run: |
+        # Check for tabs vs spaces consistency
+        find . -name "*.ino" -o -name "*.h" -o -name "*.cpp" | xargs file | grep -E "with (CRLF|CR)" && exit 1 || exit 0
+        
+    - name: Check for large files
+      run: |
+        find . -type f -size +1M | grep -v ".git" && echo "Large files found!" && exit 1 || exit 0

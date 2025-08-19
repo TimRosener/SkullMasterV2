@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Community Support
+    url: https://github.com/your-org/SkullMasterV2/discussions
+    about: Please ask and answer questions here
+  - name: Safety Concern
+    url: mailto:safety@your-org.com
+    about: Report urgent safety issues directly
+  - name: Documentation
+    url: https://github.com/your-org/SkullMasterV2/tree/main/docs
+    about: Check our documentation for answers

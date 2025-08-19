@@ -1,0 +1,150 @@
+# SkullMasterV2 .gitignore
+# Based on company standards for embedded projects
+
+# Build outputs
+build/
+*.elf
+*.bin
+*.hex
+*.uf2
+*.map
+*.lst
+*.sym
+
+# Arduino/PlatformIO specific
+.pio/
+.vscode/
+*.code-workspace
+.arduino*/
+libraries/
+lib/deps/
+
+# IDE specific files
+.idea/
+*.iml
+*.sublime-project
+*.sublime-workspace
+.project
+.cproject
+.settings/
+*.swp
+*.swo
+*~
+
+# OS specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Debug files
+*.log
+*.tlog
+debug/
+Debug/
+Release/
+
+# Core dumps
+core
+*.core
+core.*
+
+# Backup files
+*.bak
+*.backup
+*.old
+*.orig
+*.tmp
+
+# Compiled Object files
+*.o
+*.obj
+*.ko
+*.elf
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Shared objects
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Python cache (for build scripts)
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+# Documentation build
+docs/_build/
+docs/_static/
+docs/_templates/
+*.pdf
+
+# Credentials and secrets
+*.key
+*.pem
+*.cert
+secrets.h
+credentials.h
+config.local.h
+
+# Test outputs
+test_results/
+coverage/
+*.gcov
+*.gcda
+*.gcno
+
+# Hardware files (keep source, ignore generated)
+*.b#*
+*.s#*
+*.l#*
+eagle.epf
+
+# Serial port logs
+*.minicom
+serial_*.txt
+
+# DMX test files
+dmx_capture*.bin
+dmx_test*.dat
+
+# Performance logs
+perf_*.log
+profile_*.txt
+
+# Temporary files
+temp/
+tmp/
+
+# User-specific configuration
+user_config.h
+local_settings.h
+
+# But keep these
+!.gitignore
+!.gitattributes
+!README.md
+!LICENSE
+!CONTRIBUTING.md
+!CODE_OF_CONDUCT.md
+!.github/
